@@ -1,0 +1,216 @@
+:root {
+    --bg: white;
+    --compose-box-bg: hsl(0, 0%, 100%, 0.7);
+    --fg: black;
+    --my-message-bg: hsl(215, 90%, 50%);
+    --my-message-fg: white;
+    --response-bg: hsl(0, 0%, 91%);
+    --link: hsl(215, 100%, 45%);
+    --input-border: hsla(0, 0%, 0%, 20%);
+    --info: hsl(120, 50%, 80%);
+    --info-link: hsl(210, 100%, 30%);
+    --error-fg: hsl(5, 70%, 50%);
+
+    --chat-max-width: 50em;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    line-height: 130%;
+    background-color: var(--bg);
+    color: var(--fg);
+    margin-bottom: calc(4em + env(safe-area-inset-bottom));
+}
+
+.container {
+    max-width: var(--chat-max-width);
+    margin: 0 auto;
+    padding: 0.7em 1em;
+}
+
+#start-view {
+    background-color: var(--info);
+    padding: 1em;
+    border-radius: 1em;
+    display: inline-block;
+    margin: 1em 0;
+    font-size: 1.1em;
+}
+
+#start-view a {
+    color: var(--info-link);
+    text-decoration: underline;
+}
+
+#compose-box {
+    background-color: var(--compose-box-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: fixed;
+    bottom: 0;
+
+    padding: 0.9em;
+    width: calc(100% - 1.8em);
+    max-width: var(--chat-max-width);
+    padding-bottom: calc(0.8em + env(safe-area-inset-bottom));
+    margin-left: -1em;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#prompt {
+    font-size: 1.1em;
+    padding: 0.3em 0.6em;
+    flex: 1;
+    margin: 0;
+    max-height: 70vh;
+}
+
+#prompt-container {
+    flex: 1;
+    margin-right: 0.5em;
+}
+
+input {
+    font-size: 16px;
+}
+
+.response-container {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+.my-message-container {
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+}
+
+.message-bubble {
+    margin-top: 1em;
+    display: inline-block;
+    padding-top: 0.5em;
+    padding-bottom: 0.55em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    border-radius: 1.0em;
+}
+
+.response-bubble {
+    background-color: var(--response-bg);
+    color: var(--fg);
+}
+
+.my-message-bubble {
+    background-color: var(--my-message-bg);
+    color: var(--my-message-fg);
+}
+
+.error {
+    color: var(--error-fg);
+}
+
+.copied-indicator {
+    font-size: 0.8em;
+}
+
+p {
+    margin: 0;
+}
+
+code {
+    white-space: pre-wrap;
+}
+
+br {
+    line-height: 200%;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: var(--link);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.disclaimer {
+    font-size: 0.7em;
+    line-height: 130%;
+    margin: 0.35em 0;
+}
+
+footer {
+    margin-top: 10px;
+    font-size: 0.7em;
+    opacity: 70%;
+}
+
+input[type=text], textarea {
+    font-family: -apple-system, sans-serif;
+    line-height: 120%;
+    background-color: var(--bg);
+    color: var(--fg);
+    border: 1px solid var(--input-border);
+    padding: 0.2em 0.5em;
+    border-radius: 1em;
+}
+
+.textarea-border-radius {
+    border-radius: 1em;
+    overflow: hidden;
+    display: flex;
+    border: 1px solid var(--input-border);
+}
+
+.textarea-border-radius > textarea {
+    margin: -1px !important;
+    border: none;
+}
+
+input[type=text]:focus, textarea:focus {
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    height: auto;
+}
+
+button {
+    background-color: var(--my-message-bg);
+    color: var(--my-message-fg);
+    border: none;
+    padding: 0.4em 0.8em;
+    border-radius: 19px;
+    font-size: 1em;
+    margin: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: hsl(215, 20%, 9%);
+        --compose-box-bg: hsl(215, 20%, 9%, 0.7);
+        --fg: hsl(0, 0%, 95%);
+        --my-message-bg: hsl(215, 75%, 48%);
+        --my-message-fg: white;
+        --response-bg: hsl(215, 15%, 20%);
+        --link: hsl(215, 100%, 65%);
+        --input-border: hsla(0, 0%, 90%, 40%);
+        --info: hsl(130, 30%, 25%);
+        --info-link: hsl(220, 100%, 85%);
+        --error-fg: hsl(5, 70%, 60%);
+    }
+
+    * {
+        color-scheme: dark;
+    }
+}

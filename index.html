@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Assistant</title>
+        <link rel="manifest" href="/manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="Assistant">
+        <link rel="apple-touch-icon" href="/icon.png">
+        <meta name="theme-color" content="white" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="hsl(215, 20%, 9%)" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="style.css?3" type="text/css">
+        <script src="https://cdn.jsdelivr.net/npm/marked@4/marked.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+        <script src="index.js?4"></script>
+    </head>
+    <body>
+        <div class="container">
+            OpenAI API key:
+            <input type="text" id="api-key" placeholder="sk-xxxx">
+            <div class="disclaimer">The API key is only sent to Open AI directly. It is saved to your browser's localStorage.</div>
+            <div id="start-view">
+                Start by <a href="https://platform.openai.com/account/api-keys" target="_blank">getting an API key</a> from OpenAI.
+                <div class="disclaimer">OpenAI documentation says "Do not share your API key with others, or expose it in the browser or other client-side code." This means that if you are <strong>building</strong> a web app, you should not leak the service's API key to your users.</div>
+            </div>
+            <footer>
+                <a href="https://github.com/felixbade/chatgpt-web-ui" target="_blank">Source code</a> &middot; <a href="https://github.com/felixbade/chatgpt-web-ui/issues" target="_blank">Feature request</a>
+            </footer>
+            <div id="output"></div>
+            <form id="compose-box">
+                <div class="textarea-border-radius" id="prompt-container">
+                    <textarea id="prompt" placeholder="Message" autofocus rows="1"></textarea>
+                </div>
+                <button type="submit" id="submit">Send</button>
+            </form>
+        </div>
+    </body>
+</html>
